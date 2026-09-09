@@ -1,0 +1,2067 @@
+    <!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title> श्री साई फाऊंडेशन  </title>
+<!-- <link  -->
+    <!-- <!-- href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  -->
+    <!-- rel="stylesheet"> -->
+	
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
+
+    <link rel="stylesheet"
+          href="css/modal.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-container">
+
+        <div class="login-brand">
+
+            <div class="brand-logo">
+                 श्री 
+            </div>
+
+            <h1>
+                 श्री साई फाऊंडेशन 
+            </h1>
+
+            <p id="loginOwner">
+                मालक: शरद ठाकरे
+            </p>
+
+        </div>
+
+
+        <div class="login-card">
+
+            <div class="language-selector">
+
+                <label>
+                    Language / भाषा
+                </label>
+
+                <select id="languageSelect"
+                        onchange="changeLanguage(this.value)">
+
+                    <option value="mr">
+                        मराठी
+                    </option>
+
+                    <option value="en">
+                        English
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <h2 id="loginTitle">
+                लॉगिन
+            </h2>
+
+
+            <div class="form-group">
+
+                <label id="usernameLabel">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    autocomplete="username"
+                    placeholder="Username">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label id="passwordLabel">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        autocomplete="current-password"
+                        placeholder="Password">
+
+                    <button
+                        type="button"
+                        onclick="togglePassword()">
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn login-btn"
+                onclick="login()">
+
+                <span id="loginButtonText">
+                    लॉगिन करा
+                </span>
+
+            </button>
+
+
+            <div id="loginMessage"
+                 class="message">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<div id="appPage"
+     class="app-page hidden">
+
+
+    <!-- SIDEBAR -->
+
+    <aside id="sidebar"
+           class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo small">
+               श्री
+            </div>
+
+            <div>
+                <strong>
+                     श्री साई फाऊंडेशन 
+                </strong>
+
+                <small>
+                    SHREE SAI ATTENDANCE
+                </small>
+            </div>
+
+        </div>
+
+
+        <!-- <nav id="mainMenu"> -->
+
+            <!-- <button -->
+                <!-- class="menu-item active" -->
+                <!-- data-page="dashboard" -->
+                <!-- onclick="navigate('dashboard')"> -->
+
+                <!-- <span>📊</span> -->
+                <!-- <span data-i18n="dashboard"> -->
+                    <!-- Dashboard -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+
+            <!-- <button -->
+                <!-- id="employeeMenu" -->
+                <!-- class="menu-item owner-only" -->
+                <!-- data-page="employees" -->
+                <!-- onclick="navigate('employees')"> -->
+
+                <!-- <span>👥</span> -->
+
+                <!-- <span data-i18n="employees"> -->
+                    <!-- Employees -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+
+            <!-- <button -->
+                <!-- class="menu-item" -->
+                <!-- data-page="attendance" -->
+                <!-- onclick="navigate('attendance')"> -->
+
+                <!-- <span>📅</span> -->
+
+                <!-- <span data-i18n="attendance"> -->
+                    <!-- Attendance -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+
+            <!-- <button -->
+                <!-- class="menu-item owner-only" -->
+                <!-- data-page="advances" -->
+                <!-- onclick="navigate('advances')"> -->
+
+                <!-- <span>💰</span> -->
+
+                <!-- <span data-i18n="advance"> -->
+                    <!-- Advance -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+
+            <!-- <button -->
+                <!-- class="menu-item" -->
+                <!-- data-page="salary" -->
+                <!-- onclick="navigate('salary')"> -->
+
+                <!-- <span>💵</span> -->
+
+                <!-- <span data-i18n="salary"> -->
+                    <!-- Salary -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+
+            <!-- <button -->
+                <!-- class="menu-item owner-only" -->
+                <!-- data-page="reports" -->
+                <!-- onclick="navigate('reports')"> -->
+
+                <!-- <span>📑</span> -->
+
+                <!-- <span data-i18n="reports"> -->
+                    <!-- Reports -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+
+            <!-- <button -->
+                <!-- class="menu-item owner-only" -->
+                <!-- data-page="backup" -->
+                <!-- onclick="navigate('backup')"> -->
+
+                <!-- <span>💾</span> -->
+
+                <!-- <span data-i18n="backup"> -->
+                    <!-- Backup / Restore -->
+                <!-- </span> -->
+
+            <!-- </button> -->
+
+        <!-- </nav> -->
+<!-- =====================================================
+     MAIN MENU
+===================================================== -->
+
+<nav id="mainMenu">
+
+    <!-- ================= COMMON ================= -->
+
+    <button
+        class="menu-item active owner-only"
+        data-page="dashboard"
+        onclick="navigate('dashboard')">
+
+               <span>📊</span>
+               <span data-i18n="dashboard"> 
+                   Dashboard 
+                 </span>
+
+    </button>
+
+
+    <!-- ================= OWNER ================= -->
+
+    <button
+        id="employeeMenu"
+        class="menu-item owner-only"
+        data-page="employees"
+        onclick="navigate('employees')">
+
+        <span>👥</span>
+
+        <span data-i18n="employees">
+            Employees
+        </span>
+
+    </button>
+
+
+    <button
+        class="menu-item owner-only"
+        data-page="attendance"
+        onclick="navigate('attendance')">
+
+        <span>📅</span>
+
+        <span data-i18n="attendance">
+            Attendance
+        </span>
+
+    </button>
+
+
+    <button
+        class="menu-item owner-only"
+        data-page="advances"
+        onclick="navigate('advances')">
+
+        <span>💰</span>
+
+        <span data-i18n="advance">
+            Advance
+        </span>
+
+    </button>
+
+   <button
+        class="menu-item owner-only"
+        data-page="salary"
+        onclick="navigate('LeaveApproval')">
+
+        <span>💵</span>
+
+        <span data-i18n="Leave Approval">
+            Leave Approval
+        </span>
+
+    </button>
+	<!-- <!-- Leave Approval -->
+<!-- <li class="owner-only"> -->
+    <!-- <a href="javascript:void(0)" -->
+       <!-- onclick="loadAdminLeave()"> -->
+
+        <!-- <span class="menu-icon">📝</span> -->
+
+        <!-- <span class="menu-text"> -->
+            <!-- Leave Approval -->
+        <!-- </span> -->
+
+        <!-- <span -->
+            <!-- id="pendingLeaveBadge" -->
+            <!-- class="menu-badge" -->
+            <!-- style="display:none;"> -->
+            <!-- 0 -->
+        <!-- </span> -->
+
+    <!-- </a> -->
+<!-- </li> -->
+    <button
+        class="menu-item owner-only"
+        data-page="salary"
+        onclick="navigate('salary')">
+
+        <span>💵</span>
+
+        <span data-i18n="salary">
+            Salary
+        </span>
+
+    </button>
+
+
+    <button
+        class="menu-item owner-only"
+        data-page="reports"
+        onclick="navigate('reports')">
+
+        <span>📑</span>
+
+        <span data-i18n="reports">
+            Reports
+        </span>
+
+    </button>
+
+
+    <button
+        class="menu-item owner-only"
+        data-page="backup"
+        onclick="navigate('backup')">
+
+        <span>💾</span>
+
+        <span  data-i18n="backup">
+            Backup / Restore
+        </span>
+
+    </button>
+
+
+    <!-- =================================================
+         EMPLOYEE ONLY
+    ================================================= -->
+
+    <div class="employee-menu-section employee-only">
+
+        <div class="menu-section-title">
+            MY ACCOUNT
+        </div>
+
+
+        <!-- My Attendance -->
+
+        <button
+            class="menu-item employee-only"
+            data-page="my-attendance"
+            onclick="navigate('my-attendance')">
+
+            <span>📅</span>
+
+            <span>
+                My Attendance
+            </span>
+
+        </button>
+
+
+        <!-- Check In / Check Out -->
+
+        <button
+            class="menu-item employee-only"
+            data-page="check-in-out"
+            onclick="navigate('check-in-out')">
+
+            <span>🟢</span>
+
+            <span>
+                Check In / Out
+            </span>
+
+        </button>
+
+
+        <!-- My Leave -->
+
+        <button
+            class="menu-item employee-only"
+            data-page="my-leave"
+            onclick="navigate('my-leave')">
+
+            <span>📝</span>
+
+            <span>
+                My Leave
+            </span>
+
+        </button>
+
+
+        <!-- My Salary -->
+
+        <button
+            class="menu-item employee-only"
+            data-page="my-salary"
+            onclick="navigate('my-salary')">
+
+            <span>💵</span>
+
+            <span>
+                My Salary
+            </span>
+
+        </button>
+
+
+        <!-- Salary Slip -->
+
+        <button
+            class="menu-item employee-only"
+            data-page="salary-slip"
+            onclick="navigate('salary-slip')">
+
+            <span>📄</span>
+
+            <span>
+                Salary Slip
+            </span>
+
+        </button>
+
+    </div>
+
+</nav>
+
+        <div class="sidebar-footer">
+
+            <button
+                class="logout-btn"
+                onclick="logout()">
+
+                🚪
+                <span data-i18n="logout">
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <button
+                class="mobile-menu-btn"
+                onclick="toggleSidebar()">
+
+                ☰
+
+            </button>
+
+
+            <div>
+
+                <h2 id="pageTitle">
+                    Dashboard
+                </h2>
+
+                <p id="pageSubtitle">
+                    श्री साई फाऊंडेशन 
+                </p>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <select
+                    id="appLanguage"
+                    onchange="changeLanguage(this.value)">
+
+                    <option value="mr">
+                        मराठी
+                    </option>
+
+                    <option value="en">
+                        English
+                    </option>
+
+                </select>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong id="loggedUserName">
+                            
+                        </strong>
+
+                        <small id="loggedUserRole">
+                            
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section id="pageContent"
+                 class="page-content">
+        </section>
+
+    </main>
+
+</div>
+
+<!-- =====================================
+     ADMIN LEAVE APPROVAL MODAL
+====================================== -->
+
+<div
+    id="adminLeaveActionModal"
+    class="modal">
+
+    <div class="modal-dialog">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h3 id="adminLeaveActionTitle">
+                    Leave Action
+                </h3>
+
+                <p class="modal-subtitle">
+                    Review employee leave request
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeAdminLeaveActionModal()">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <!-- Employee information -->
+
+            <div class="leave-review-card">
+
+                <div class="leave-review-row">
+
+                    <span>
+                        Employee
+                    </span>
+
+                    <strong
+                        id="reviewEmployeeName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="leave-review-row">
+
+                    <span>
+                        Business
+                    </span>
+
+                    <strong
+                        id="reviewBusinessName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="leave-review-row">
+
+                    <span>
+                        Leave Period
+                    </span>
+
+                    <strong
+                        id="reviewLeavePeriod">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="leave-review-row">
+
+                    <span>
+                        Total Days
+                    </span>
+
+                    <strong
+                        id="reviewLeaveDays">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="leave-review-row">
+
+                    <span>
+                        Reason
+                    </span>
+
+                    <strong
+                        id="reviewLeaveReason">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Admin remark -->
+
+            <div class="form-group">
+
+                <label for="adminLeaveRemark">
+
+                    Admin Remark
+
+                </label>
+
+                <textarea
+                    id="adminLeaveRemark"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="Enter approval/rejection remark...">
+                </textarea>
+
+            </div>
+
+
+            <input
+                type="hidden"
+                id="selectedLeaveId">
+
+
+            <input
+                type="hidden"
+                id="selectedLeaveAction">
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="secondary-btn"
+                onclick="closeAdminLeaveActionModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                class="danger-btn"
+                id="rejectLeaveConfirmBtn"
+                onclick="confirmAdminLeaveAction('Rejected')">
+
+                ✕ Reject
+
+            </button>
+
+
+            <button
+                type="button"
+                class="success-btn"
+                id="approveLeaveConfirmBtn"
+                onclick="confirmAdminLeaveAction('Approved')">
+
+                ✓ Approve
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================================
+     EMPLOYEE APPLY LEAVE MODAL
+================================= -->
+
+<!-- <div id="employeeLeaveModal" class="modal"> -->
+
+    <!-- <div class="modal-dialog"> -->
+
+        <!-- <!-- Header --> -->
+        <!-- <div class="modal-header"> -->
+
+            <!-- <div> -->
+                <!-- <h3> -->
+                    <!-- Apply Leave -->
+                <!-- </h3> -->
+
+                <!-- <p class="modal-subtitle"> -->
+                    <!-- Submit your leave request -->
+                <!-- </p> -->
+            <!-- </div> -->
+
+            <!-- <button -->
+                <!-- type="button" -->
+                <!-- class="modal-close" -->
+                <!-- onclick="closeEmployeeLeaveModal()"> -->
+
+                <!-- &times; -->
+
+            <!-- </button> -->
+
+        <!-- </div> -->
+
+
+        <!-- <!-- Body --> -->
+        <!-- <div class="modal-body"> -->
+
+            <!-- <form -->
+                <!-- id="employeeLeaveForm" -->
+                <!-- onsubmit="applyEmployeeLeave(event)"> -->
+
+                <!-- <div class="form-grid"> -->
+
+
+                    <!-- <!-- From Date --> -->
+                    <!-- <div class="form-group"> -->
+
+                        <!-- <label for="employeeLeaveFrom"> -->
+                            <!-- From Date -->
+                            <!-- <span class="required">*</span> -->
+                        <!-- </label> -->
+
+                        <!-- <input -->
+                            <!-- type="date" -->
+                            <!-- id="employeeLeaveFrom" -->
+                            <!-- name="fromDate" -->
+                            <!-- required> -->
+
+                    <!-- </div> -->
+
+
+                    <!-- <!-- To Date --> -->
+                    <!-- <div class="form-group"> -->
+
+                        <!-- <label for="employeeLeaveTo"> -->
+                            <!-- To Date -->
+                            <!-- <span class="required">*</span> -->
+                        <!-- </label> -->
+
+                        <!-- <input -->
+                            <!-- type="date" -->
+                            <!-- id="employeeLeaveTo" -->
+                            <!-- name="toDate" -->
+                            <!-- required> -->
+
+                    <!-- </div> -->
+
+
+                    <!-- <!-- Reason --> -->
+                    <!-- <div class="form-group full-width"> -->
+
+                        <!-- <label for="employeeLeaveReason"> -->
+                            <!-- Leave Reason -->
+                            <!-- <span class="required">*</span> -->
+                        <!-- </label> -->
+
+                        <!-- <textarea -->
+                            <!-- id="employeeLeaveReason" -->
+                            <!-- name="reason" -->
+                            <!-- rows="4" -->
+                            <!-- maxlength="500" -->
+                            <!-- placeholder="Enter reason for leave..." -->
+                            <!-- required> -->
+                        <!-- </textarea> -->
+
+                        <!-- <small> -->
+                            <!-- Maximum 500 characters -->
+                        <!-- </small> -->
+
+                    <!-- </div> -->
+
+
+                    <!-- <!-- Leave Days --> -->
+                    <!-- <div class="form-group full-width"> -->
+
+                        <!-- <div -->
+                            <!-- id="employeeLeaveDays" -->
+                            <!-- class="leave-days-info" -->
+                            <!-- style="display:none;"> -->
+
+                            <!-- Leave Days: -->
+                            <!-- <strong id="employeeLeaveDaysCount"> -->
+                                <!-- 0 -->
+                            <!-- </strong> -->
+
+                        <!-- </div> -->
+
+                    <!-- </div> -->
+
+
+                    <!-- <!-- Error Message --> -->
+                    <!-- <div -->
+                        <!-- id="employeeLeaveError" -->
+                        <!-- class="form-group full-width" -->
+                        <!-- style="display:none;"> -->
+
+                        <!-- <div class="error-message"> -->
+                        <!-- </div> -->
+
+                    <!-- </div> -->
+
+                <!-- </div> -->
+
+
+                <!-- <!-- Footer --> -->
+                <!-- <div class="modal-footer"> -->
+
+                    <!-- <button -->
+                        <!-- type="button" -->
+                        <!-- class="secondary-btn" -->
+                        <!-- onclick="closeEmployeeLeaveModal()"> -->
+
+                        <!-- Cancel -->
+
+                    <!-- </button> -->
+
+                    <!-- <button -->
+                        <!-- type="submit" -->
+                        <!-- class="primary-btn" -->
+                        <!-- id="employeeLeaveSubmitBtn"> -->
+
+                        <!-- Apply Leave -->
+
+                    <!-- </button> -->
+
+                <!-- </div> -->
+
+            <!-- </form> -->
+
+        <!-- </div> -->
+
+    <!-- </div> -->
+
+<!-- </div> -->
+<!-- =====================================================
+     EMPLOYEE APPLY LEAVE MODAL
+===================================================== -->
+
+<div id="employeeLeaveModal" class="modal">
+
+    <div class="modal-dialog employee-leave-modal-dialog">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="employee-leave-header">
+
+            <div class="employee-leave-title-area">
+
+                <div class="employee-leave-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <h3>
+                        Apply for Leave
+                    </h3>
+
+                    <p>
+                        Submit your leave request
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="employee-leave-close"
+                onclick="closeEmployeeLeaveModal()"
+                aria-label="Close">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <!-- Gold line -->
+
+        <div class="employee-leave-accent">
+        </div>
+
+
+        <!-- ================= BODY ================= -->
+
+        <div class="employee-leave-body">
+
+            <form
+                id="employeeLeaveForm"
+                onsubmit="applyEmployeeLeave(event)">
+
+
+                <!-- Leave Information -->
+
+                <div class="leave-form-heading">
+
+                    <span>
+                        LEAVE INFORMATION
+                    </span>
+
+                    <p>
+                        Please select your leave period and provide a reason.
+                    </p>
+
+                </div>
+
+
+                <!-- ================= DATE ROW ================= -->
+
+                <div class="leave-date-grid">
+
+
+                    <!-- FROM DATE -->
+
+                    <div class="leave-date-card">
+
+                        <div class="leave-field-icon">
+                            📅
+                        </div>
+
+                        <div class="leave-field-content">
+
+                            <label
+                                for="employeeLeaveFrom">
+
+                                From Date
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <input
+                                type="date"
+                                id="employeeLeaveFrom"
+                                name="fromDate"
+                                required>
+
+
+                            <small>
+                                Leave starting date
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TO DATE -->
+
+                    <div class="leave-date-card">
+
+                        <div class="leave-field-icon">
+                            📅
+                        </div>
+
+                        <div class="leave-field-content">
+
+                            <label
+                                for="employeeLeaveTo">
+
+                                To Date
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+
+                            <input
+                                type="date"
+                                id="employeeLeaveTo"
+                                name="toDate"
+                                required>
+
+
+                            <small>
+                                Leave ending date
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= LEAVE DAYS ================= -->
+
+                <div
+                    id="employeeLeaveDays"
+                    class="leave-days-summary"
+                    style="display:none;">
+
+                    <div class="leave-days-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <span>
+                            TOTAL LEAVE DAYS
+                        </span>
+
+                        <strong
+                            id="employeeLeaveDaysCount">
+
+                            0
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= REASON ================= -->
+
+                <div class="leave-reason-container">
+
+                    <label
+                        for="employeeLeaveReason">
+
+                        Leave Reason
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <textarea
+                        id="employeeLeaveReason"
+                        name="reason"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="Please enter the reason for your leave..."
+                        required>
+                    </textarea>
+
+
+                    <div class="leave-reason-footer">
+
+                        <small>
+                            Please provide a clear reason for your leave.
+                        </small>
+
+                        <span
+                            id="employeeLeaveCharacterCount">
+
+                            0 / 500
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ERROR ================= -->
+
+                <div
+                    id="employeeLeaveError"
+                    class="employee-leave-error"
+                    style="display:none;">
+
+                    <span class="error-icon">
+                        ⚠
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Unable to submit request
+                        </strong>
+
+                        <p class="error-message">
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= FOOTER ================= -->
+
+                <div class="employee-leave-footer">
+
+                    <div class="leave-footer-note">
+
+                        <span>
+                            🔒
+                        </span>
+
+                        <p>
+                            Your leave request will be sent to the
+                            administrator for approval.
+                        </p>
+
+                    </div>
+
+
+                    <div class="leave-footer-buttons">
+
+                        <button
+                            type="button"
+                            class="leave-cancel-btn"
+                            onclick="closeEmployeeLeaveModal()">
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="leave-submit-btn"
+                            id="employeeLeaveSubmitBtn">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            Apply Leave
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= BRAND FOOTER ================= -->
+
+        <div class="employee-leave-brand-footer">
+
+            <strong>
+                श्री साई फाऊंडेशन
+            </strong>
+
+            <span>
+                Leave Management • SAI FOUNDATION
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     EMPLOYEE MODAL
+===================================================== -->
+
+<div id="employeeModal"
+     class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="employeeModalTitle">
+                    कर्मचारी
+                </h2>
+
+                <p>
+                    Employee Information
+                </p>
+
+            </div>
+
+            <button
+                class="modal-close"
+                onclick="closeModal('employeeModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="employeeForm"
+              onsubmit="saveEmployee(event)">
+
+            <div class="modal-body">
+
+                <input
+                    type="hidden"
+                    id="employeeId">
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            प्रथम नाव *
+                        </label>
+
+                        <input
+                            id="firstName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            आडनाव *
+                        </label>
+
+                        <input
+                            id="lastName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="employeeEmail"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Mobile *
+                        </label>
+
+                        <input
+                            id="employeeMobile"
+                            maxlength="10"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            पत्ता
+                        </label>
+
+                        <textarea
+                            id="employeeAddress"
+                            rows="3">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            मासिक पगार *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="employeeSalary"
+                            min="0"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            व्यवसाय *
+                        </label>
+
+                        <select
+                            id="businessType"
+                            required>
+
+                            <option value="">
+                                व्यवसाय निवडा
+                            </option>
+
+                            <option value="1">
+                                श्री साई वे ब्रिज
+                            </option>
+
+                            <option value="2">
+                                हॉटेल आनंदराज
+                            </option>
+
+                           
+                            <option value="3">
+                                हॉटेल राजनंदिनी
+                            </option>
+							 <option value="4">
+                                चिंतामणी पेट्रोल पंप
+                            </option>
+
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Username
+                        </label>
+
+                        <input
+                            id="employeeUsername">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="employeePassword">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="closeModal('employeeModal')">
+
+                    रद्द करा
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    💾 Save
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADVANCE MODAL
+===================================================== -->
+
+<div id="advanceModal"
+     class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    💰 Advance
+                </h2>
+
+                <p>
+                    कर्मचारी Advance
+                </p>
+
+            </div>
+
+            <button
+                class="modal-close"
+                onclick="closeModal('advanceModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form onsubmit="saveAdvance(event)">
+
+            <div class="modal-body">
+
+                <input
+                    type="hidden"
+                    id="advanceId">
+
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+
+                        <label>
+                            कर्मचारी *
+                        </label>
+
+                        <select
+                            id="advanceEmployee"
+                            required>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            तारीख *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="advanceDate"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Advance Amount *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="advanceAmount"
+                            min="1"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            कारण / Remark
+                        </label>
+
+                        <textarea
+                            id="advanceRemark"
+                            rows="3">
+                        </textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="closeModal('advanceModal')">
+
+                    रद्द करा
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    💾 Save Advance
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     EDIT ADVANCE MODAL
+===================================================== -->
+
+<div id="editAdvanceModal"
+     class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    ✏️ Advance Edit
+                </h2>
+
+                <p>
+                    कर्मचारी Advance माहिती अपडेट करा
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal('editAdvanceModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form onsubmit="updateAdvance(event)">
+
+            <div class="modal-body">
+
+                <!-- Advance ID -->
+                <input
+                    type="hidden"
+                    id="editAdvanceId">
+
+
+                <div class="form-grid">
+
+                    <!-- Employee -->
+                    <div class="form-group full">
+
+                        <label>
+                            कर्मचारी *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editAdvanceEmployee"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- Date -->
+                    <div class="form-group">
+
+                        <label>
+                            तारीख *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="editAdvanceDate"
+                            required>
+
+                    </div>
+
+
+                    <!-- Amount -->
+                    <div class="form-group">
+
+                        <label>
+                            Advance Amount *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="editAdvanceAmount"
+                            min="1"
+                            step="0.01"
+                            required>
+
+                    </div>
+
+
+                    <!-- Remark -->
+                    <div class="form-group full">
+
+                        <label>
+                            कारण / Remark
+                        </label>
+
+                        <textarea
+                            id="editAdvanceRemark"
+                            rows="3"
+                            placeholder="कारण / Remark लिहा..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="closeModal('editAdvanceModal')">
+
+                    रद्द करा
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                    id="updateAdvanceButton">
+
+                    💾 Update Advance
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =========================================================
+     EDIT ATTENDANCE MODAL
+========================================================= -->
+<!-- =====================================================
+     ATTENDANCE MODAL
+===================================================== -->
+
+<div id="attendanceModal"
+     class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-header">
+
+            <h2>
+                📅 Attendance
+            </h2>
+
+            <button
+                class="modal-close"
+                onclick="closeModal('attendanceModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form onsubmit="saveAttendance(event)">
+
+            <div class="modal-body">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            कर्मचारी
+                        </label>
+
+                        <select
+                            id="attendanceEmployee"
+                            required>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            तारीख
+                        </label>
+
+                        <input
+                            type="date"
+                            id="attendanceDate"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select
+                            id="attendanceStatus"
+                            required>
+
+                            <option value="PRESENT">
+                                उपस्थित
+                            </option>
+
+                            <option value="ABSENT">
+                                अनुपस्थित
+                            </option>
+
+                            <option value="LEAVE">
+                                रजा
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="closeModal('attendanceModal')">
+
+                    रद्द करा
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Save
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     EDIT ATTENDANCE MODAL
+===================================================== -->
+
+<div id="editAttendanceModal"
+     class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-header">
+
+            <h2>
+                ✏️ उपस्थिती संपादित करा
+            </h2>
+
+            <button
+                class="modal-close"
+                type="button"
+                onclick="closeModal('editAttendanceModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form onsubmit="updateAttendance(event)">
+
+            <div class="modal-body">
+
+                <!-- Hidden Attendance ID -->
+                <input
+                    type="hidden"
+                    id="editAttendanceId">
+
+
+                <div class="form-grid">
+
+                    <!-- Employee -->
+                    <div class="form-group full">
+
+                        <label>
+                            कर्मचारी
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editAttendanceEmployee"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- Date -->
+                    <div class="form-group">
+
+                        <label>
+                            तारीख
+                        </label>
+
+                        <input
+                            type="date"
+                            id="editAttendanceDate"
+                            required>
+
+                    </div>
+
+
+                    <!-- Status -->
+                    <div class="form-group">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select
+                            id="editAttendanceStatus"
+                            required>
+
+                            <option value="PRESENT">
+                                उपस्थित
+                            </option>
+
+                            <option value="ABSENT">
+                                अनुपस्थित
+                            </option>
+
+                            <option value="LEAVE">
+                                रजा
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Remarks -->
+                    <div class="form-group full">
+
+                        <label>
+                            शेरा
+                        </label>
+
+                        <textarea
+                            id="editAttendanceRemarks"
+                            rows="3"
+                            placeholder="शेरा लिहा..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    onclick="closeModal('editAttendanceModal')">
+
+                    रद्द करा
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                    id="updateAttendanceButton">
+
+                    Update
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- <script -->
+    <!-- src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"> 
+<!-- </script> -->
+<script src="js/AdminLeave.js"></script>
+<script src="js/EmployeeDashboard.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/language.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/employees.js"></script>
+<script src="js/attendance.js"></script>
+<script src="js/advances.js"></script>
+<script src="js/salary.js"></script>
+<script src="js/reports.js"></script>
+<script src="js/backup.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
